@@ -1,0 +1,21 @@
+Poznámkový blok
+Poznámkový blok (notepad) slouží ke správě poznámek.
+Uživatelské rozhraní je tvořeno pomocí knihovny ncurses, interakce s uživatelem je pomocí výzev ke stisknutí určitého tlačítka (výběr).
+Po spuštění programu si uživatel vybírá, jestli založit nový poznámkový blok či pracovat v některém z již vytvořených.
+Již vytvořené poznámkové bloky se načítají ze souborů hned po spuštění programu.
+V rámci jednoho poznámkového bloku má uživatel následující možnosti:
+- new note - lze vybrat z kategorií Shopping List, Text a Task List
+	- Při tvorbě poznámky je uživatel požádán o zadání jména (pokud není zadáno, automaticky se přiřadí), důležitosti, výběru štítků a kategorie.
+- save notes - poznámky se také ukládají po úpravì jednotlivých poznámek automaticky
+- export all - uživatel si může zvolit, zda chce všechny poznámky daného poznámkového bloku exportovat v .txt, nebo v Markdownu
+- find note - hledat poznámky jde v rámci jednoho poznámkového bloku podle jejich kategorie (Shopping List...), důležitosti, štítků (work, school,...) či textu (vyhledává se zároveň v názvech i obsazích poznámek)
+- import note - po zadání příslušných kategorií lze importovat poznámku v takovém formátu, v jakém by byla exportována do .txt
+- show notes - zobrazí seznam všech poznámek daného bloku, uživatel si poté může vybrat, se kterou pracovat
+Zobrazení jedné poznámky:
+- při výběru jedné poznámky si poté uživatel může vybrat, jestli chce poznámku zobrazit, vymazat, nebo exportovat v .txt či .md
+Každá poznámka se zobrazuje v konzoli v plaintextu, formátování závisí na její kategorii, a s ní se zobrazuje i její důležitost a její štítky. 
+Jednotlivé kategorie poznámek jsou implementovány jako třídy ShoppingList, TaskList a TextNote, které jsou podtřídami třídy Note. 
+Každý poznámkový blok je objektem třídy Notepad a celý program zaštiťuje třída Application. 
+Pro vyhledávání poznámek je implementovaná třída Criteria s podtřídami CategoryCriteria, TextCriteria, TagsCriteria a ImportanceCriteria.
+Pro ukládání jednotlivých položek nákupního seznamu a seznamu úkolů slouží pomocné struktury ShoppingListItem a TaskItem.
+
